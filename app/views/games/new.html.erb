@@ -1,0 +1,19 @@
+<div class="container">
+  <h1>New Game... are you reaaaaady ?</h1>
+  <iframe class="gif" src="https://giphy.com/embed/bfrOG2PKLBL68" width="200" height="300" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/reaction-bfrOG2PKLBL68"></a></p>
+    <% @letter.each do |letter| %>
+    <li><%= letter.upcase %></li>
+  <% end %>
+
+  <p>Longest words you found with the shitty letters we gave you ?</p>
+  <form class="form" action="/score" method="get">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <%= hidden_field_tag :letters, @letter %>
+    <input style="font-size:20px;" class="input" type="text" name="question">
+    <input class="form-button" type="submit" value="Go for it !">
+  </form>
+
+  <div class="play-again">
+  <%= link_to "PLAY AGAIN", new_path %>
+  </div>
+</div>
